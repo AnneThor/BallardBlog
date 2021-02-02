@@ -1,0 +1,16 @@
+include mixins/_navbar
+include mixins/_footer
+
+doctype html
+html(lang="en")
+  head
+     title Ballard Blog
+     meta(name="description", content="Home Page")
+     meta(charset="utf-8")
+     link(rel="stylesheet" href="styles/style.css" type="text/css")
+     block scripts
+
+body
+  +navbar(username)
+  block content
+  +footer()

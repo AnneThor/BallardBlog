@@ -1,0 +1,23 @@
+extends layout.pug
+include mixins/_post
+
+block content
+  h1.page-title Welcome #{username}
+  div#message-board
+    if !posts || posts === null
+      p There are no current posts!
+    else
+      each post in posts
+        +post(post, username)
+
+  div#post-controls
+   form(action="/new-post", method="post")#new-post
+     p Create a New Post
+     div.form-post-title
+       label Title:
+       input(type="text" name="title" placeholder="Title of Post").create-post-title
+     div.form-post-post
+       label Post:
+       textarea(name="body" placeholder="Body of Post").create-post-body
+     div
+       input(type="submit", value="Create New Post")

@@ -1,0 +1,15 @@
+mixin navbar(user)
+  div#nav-bar
+    ul#nav-links
+      li
+        a(href="/") Home
+      li
+        a(href="/messageBoard") Message Board
+      li
+        a(href="/about") About
+      if username
+        li
+          a(href="/logout")#login-out Logout #{username}        
+      else
+        li
+          a(href="/login")#login-out Login

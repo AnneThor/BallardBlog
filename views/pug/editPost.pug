@@ -1,0 +1,14 @@
+extends layout.pug
+
+block content
+  div#post-controls
+   form(action="/edit-post/"+post._id, method="post")#edit-post
+     p Edit Post
+     div
+       label Title:
+       input(type="text" name="title" value=post.title).create-post-title
+     div
+       label Post:
+       input(type="textarea" name="body" value=post.body col="5").create-post-body
+     div
+       input(type="submit", value="Update Post")

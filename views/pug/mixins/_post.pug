@@ -1,0 +1,13 @@
+mixin post(post, username)
+  div.post-container
+    p.post-title #{post.title}
+    p.post-date Posted on: #{post.date.getMonth()+1}/#{post.date.getDate()}/#{post.date.getFullYear()} at #{post.date.getHours()}:#{post.date.getMinutes()}
+    p.post-author Posted by: #{post.user}
+    p.post-body #{post.body}
+    div.post-actions
+      if post.user === username
+        form(method="get" action="/edit-post/"+post._id)
+          button(type="submit" value="Edit").edit-post Edit Post
+        form(method="post" action="/delete-post/"+post._id)
+          button(type="submit" value="Delete" id=post_id).delete-post Delete Post
+      button.comment COMMENT

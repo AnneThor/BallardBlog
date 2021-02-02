@@ -1,0 +1,16 @@
+extends layout.pug
+
+include mixins/_welcome
+include mixins/_login
+
+block scripts
+  script(src="scripts/map.js")
+  script(defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwZASt3VeX5548N5ifpc9gqqZX29eoUUQ&callback=buildMap")
+
+block content
+  p.page-title Welcome to the Ballard Message Board
+  if showLogin
+    +login()
+  else
+    +welcome()
+  div#welcome-map

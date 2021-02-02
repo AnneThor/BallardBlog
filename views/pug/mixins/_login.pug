@@ -1,0 +1,22 @@
+mixin login()
+  div#user-controls
+   form(action="/login", method="post")#user-login
+     p Already a User?
+     div
+       label Username:
+       input(type="text" name="username" placeholder="Enter Username")
+     div
+       label Password:
+       input(type="password" name="password" placeholder="Password")
+     div
+       input(type="submit", value="Login")
+   form(action="/create-user", method="post")#create-new-user
+     p Create an Account
+     div
+       label Create Username:
+       input(type="text" name="username" placeholder="Create Username")
+     div
+       label Create a Password:
+       input(type="password" name="password" placeholder="Create Password")
+     div
+       input(type="submit", value="CreateUser")
