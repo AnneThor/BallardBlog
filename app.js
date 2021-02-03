@@ -25,14 +25,14 @@ app.use(cookieSession({
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: true,
-  cookie: {secure: false,
-           maxAge: (1000*60*60)
-         }
-}));
+// app.use(session({
+//   secret: process.env.SESSION_SECRET,
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: {secure: false,
+//            maxAge: (1000*60*60)
+//          }
+// }));
 app.use(passport.initialize());
 app.use(passport.session());
 
