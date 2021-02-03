@@ -1,0 +1,5 @@
+mixin post(comment, username)
+  div.comment-container
+    p.comment-date Posted on: #{comment.date.getMonth()+1}/#{comment.date.getDate()}/#{commentt.date.getFullYear()} at #{comment.date.getHours()}:#{comment.date.getMinutes()}
+    p.comment-author Posted by: #{comment.user}
+    p.comment-body #{comment.body}

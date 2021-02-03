@@ -50,21 +50,6 @@ module.exports = function(app, db) {
         }
       );
 
-  app.route("/new-post")
-    .post(function(req,res) {
-      var newPost = { title: req.body.title,
-                      body: req.body.body,
-                      user: req.user.name ? req.user.name : "Guest",
-                      date: new Date()};
-      Post.create(newPost, function(err, post) {
-        if (err) { console.log(err)
-                   res.redirect("/")}
-        else {
-          res.redirect("/messageBoard");
-        }
-      })
-    })
-
   //logout user
   app.route("/logout")
     .get( function(req, res){
@@ -87,9 +72,19 @@ module.exports = function(app, db) {
         })
     });
 
-  app.route("/about")
-    .get(function(req, res) {
-      res.render(process.cwd()+"/views/pug/about", {username: req.user ? req.user.name : null});
+  app.route("/new-post")
+    .post(function(req,res) {
+      var newPost = { title: req.body.title,
+                      body: req.body.body,
+                      user: req.user.name ? req.user.name : "Guest",
+                      date: new Date()};
+      Post.create(newPost, function(err, post) {
+        if (err) { console.log(err)
+                   res.redirect("/")}
+        else {
+          res.redirect("/messageBoard");
+        }
+      })
     })
 
   app.route("/delete-post/:id")
@@ -127,6 +122,11 @@ module.exports = function(app, db) {
         }
     )
   });
+
+  app.route("/about")
+    .get(function(req, res) {
+      res.render(process.cwd()+"/views/pug/about", {username: req.user ? req.user.name : null});
+    })
 
   //handle missing pages
   app.use(function(req, res, next){

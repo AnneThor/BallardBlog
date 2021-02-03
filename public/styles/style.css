@@ -107,10 +107,11 @@ html {
   margin: 2px 2px;
   border-radius: 5px;
   display: grid;
-  grid-template-areas: "title title title title"
-                       "author author date date"
-                       "body body body body"
-                       "post-actions post-actions post-actions post-actions";
+  grid-template-areas: "title title"
+                       "author date"
+                       "body body"
+                       "post-actions post-actions"
+                       "comment comment";
 }
 
 .post-title {
@@ -159,6 +160,21 @@ html {
 
 .form-post-title, .form-post-post {
   margin: 2px 0;
+}
+
+.create-comment-body {
+  width: 80%;
+  max-width: 80%;
+  margin-left: 5px;
+}
+
+.reply-button {
+  text-align: right;
+}
+
+#new-comment {
+  grid-area: comment;
+
 }
 
 #post-controls {

@@ -1,5 +1,6 @@
 {
   "name": "ballardblog",
+  "homepage": "https://annethor.github.io/BallardBlog",
   "version": "1.0.0",
   "description": "Javascript Message Board",
   "main": "app.js",
@@ -8,6 +9,9 @@
   },
   "author": "Anne Thorsteinson",
   "license": "ISC",
+  "engines": {
+    "node": "14.15.4"
+  },
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
