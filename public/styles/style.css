@@ -37,8 +37,22 @@ html {
   color: pink;
 }
 
+@media (max-width: 815px) {
+  #navbar ul {
+    list-style: none;
+    display: block;
+  }
+}
+
 #dashboard {
   margin-top: 5%;
+}
+
+#landing-page {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: auto auto;
 }
 
 .page-title {
@@ -49,11 +63,13 @@ html {
 }
 
 #user-controls, #welcome-text {
-  float: left;
-  max-width: 40vw;
+  width: 45vw;
+  max-width: 45vw;
   margin-left: 20px;
   font-size: 1.75em;
 }
+
+
 
 #user-login, #create-new-user {
   max-width: 100%;
@@ -80,10 +96,9 @@ html {
 
 
 #welcome-map {
-  float: right;
   margin-right: 20px;
-  width: 50vw;
-  max-width: 50vw;
+  width: 45vw;
+  max-width: 45vw;
   height: 400px;
   max-height: 50vh;
 }
@@ -109,4 +124,96 @@ html {
 
 .add-margin {
   margin-top: 10vh;
+}
+
+.hide {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .page-title {
+    margin-top: 15vh;
+    font-size: 3em;
+  }
+
+  #landing-page {
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+  }
+
+  #user-controls, #welcome-text {
+    width: 80vw;
+    max-width: 80vw;
+    margin: 5px auto;
+    font-size: 2em;
+  }
+
+  #welcome-map {
+    max-width: 80vw;
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+  #nav-bar {
+    height: auto;
+  }
+
+  #nav-links {
+    display: block;
+    height: auto;
+    font-size: 1.25em;
+    padding: 0 0;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #nav-links li {
+    padding: 0 0;
+    margin: 0 0;
+  }
+
+  #nav-links li:hover {
+    background-color: pink;
+  }
+
+  .page-title {
+    margin-top: 20vh;
+    font-size: 2em;
+    display: block;
+    font-weight: bold;
+  }
+
+  #user-controls, #welcome-text {
+    width: 80vw;
+    max-width: 80vw;
+    font-size: 2em;
+    padding: 0 0;
+    margin: 5px 0;
+  }
+
+  #welcome-text {
+    max-height: 20vh;
+    overflow-y: scroll;
+  }
+
+  #user-login, #create-new-user{
+    margin: 5px 0;
+    width: 80vw;
+  }
+
+  #footer {
+    height: auto;
+    margin: 0;
+  }
+
+  #welcome-map {
+    margin-top: 3vh;
+    width: 80vw;
+    max-height: 35vh;
+  }
+
+
+
 }

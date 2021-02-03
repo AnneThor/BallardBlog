@@ -10,8 +10,9 @@ block scripts
 
 block content
   p.page-title Welcome to the Ballard Message Board
-  if showLogin
-    +login()
-  else
-    +welcome()
-  div#welcome-map
+  div#landing-page
+    if showLogin
+      +login()
+    else
+      +welcome()
+    div#welcome-map

@@ -42,3 +42,22 @@
 .about-links li:hover {
   color: pink;
 }
+
+@media screen and (max-width: 700px) {
+  #about-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-photo {
+    display: none;
+    width: 0;
+    height:0;
+  }
+
+  .about-links {
+    display: block;
+    height: auto;
+    text-align: center;
+  }
+}
