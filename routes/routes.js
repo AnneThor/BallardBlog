@@ -4,9 +4,9 @@ const bcrypt = require("bcrypt");
 var User = require("../models/User.js");
 var Post = require("../models/Post.js");
 
+
 module.exports = function(app, db) {
   app.get("/", (req, res) => {
-    console.log("entered app get /");
     res.render(process.cwd()+"/views/pug/index", {username: req.user ? req.user.name : null})
   });
 
@@ -37,7 +37,6 @@ module.exports = function(app, db) {
               if (err) {
                 res.redirect("/");
               } else {
-                //we have created a new user
                 next(null, user);
               }
             }
@@ -54,11 +53,12 @@ module.exports = function(app, db) {
   //logout user
   app.route("/logout")
     .get( function(req, res){
-      //need to swap status of user
       req.logout();
       res.render(process.cwd()+"/views/pug/index", {currentUser: false, username: null});
     });
 
+  //display all current posts (actually limited to 10 most recent);
+  //should end logic to sort them before limiting since they're not ordered in db
   app.route("/messageBoard")
     .get(ensureAuthenticated, function(req, res) {
       let posts = Post.find({})
@@ -68,11 +68,12 @@ module.exports = function(app, db) {
             console.log(err);
             res.render(process.cwd()+"/views/pug/messageBoard", {posts: null, username: req.user.name})
           }
-          // console.log(`passing posts to messageboard`, posts);
           res.render(process.cwd()+"/views/pug/messageBoard", {"posts": posts, username: req.user.name});
         })
     });
 
+  //create new post and save to db
+  //if there is an error, routes back to message board w/no actions
   app.route("/new-post")
     .post(function(req,res) {
       var newPost = { title: req.body.title,
@@ -81,13 +82,14 @@ module.exports = function(app, db) {
                       date: new Date()};
       Post.create(newPost, function(err, post) {
         if (err) { console.log(err)
-                   res.redirect("/")}
+                   res.redirect("/messageBoard")}
         else {
           res.redirect("/messageBoard");
         }
       })
     })
 
+  //delete a post (only visible to user who created the post)
   app.route("/delete-post/:id")
     .post(function(req, res) {
       Post.findByIdAndRemove({_id: req.params.id}, function (err, post) {
@@ -98,6 +100,7 @@ module.exports = function(app, db) {
       })
     })
 
+  //edit post (only visible to author of post)
   app.route("/edit-post/:id")
     .get(function(req, res) {
       Post.findById({_id: req.params.id}, function(err, post) {
@@ -124,6 +127,39 @@ module.exports = function(app, db) {
     )
   });
 
+  //view one post and it's associated comment(s)
+  app.route("/post-detail/:id")
+    .get( (req, res) => {
+      Post.findById( {_id: req.params.id}, (err, post) => {
+        if (err) {
+          res.redirect("/messageBoard");
+        }
+        res.render(process.cwd()+ "/views/pug/post", {post: post})
+      })
+    })
+
+  //add new comment to a post
+  app.route("/new-comment/:id")
+    .post( (req, res) => {
+      let newComment = {
+        body: req.body.comment,
+        user: req.user.name,
+        date: new Date()
+      };
+      Post.findOneAndUpdate(
+        {_id: req.params.id},
+        { $push: { comments: newComment} },
+        { new: true }, //turned that on for testing, to check if posts were updating
+      function (err, updatedPost) {
+        if (err) {
+          console.log(err);
+          res.redirect("/messageBoard");
+        }
+        res.redirect("/post-detail/"+req.params.id);
+      })
+    });
+
+  //display about page
   app.route("/about")
     .get(function(req, res) {
       res.render(process.cwd()+"/views/pug/about", {username: req.user ? req.user.name : null});

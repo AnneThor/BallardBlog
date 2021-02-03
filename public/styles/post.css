@@ -1,0 +1,118 @@
+#comments {}
+
+.comment-container {
+  width: 80%;
+  display: grid;
+  grid-template-areas: "comment comment"
+                       "author date";
+  background-color: rgba(255, 255, 255, .3);
+  margin: 2px 0 2px 20%;;
+  border-radius: 5px;
+  font-size: 1.5em;
+}
+
+.comment-date {
+  grid-area: date;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.comment-body {
+  grid-area: comment;
+  margin: 0 10px;
+}
+
+.comment-author {
+  grid-area: author;
+  text-align: left;
+  margin-left: 10px;
+}
+
+#add-comment {
+  width: 80%;
+  background-color: rgba(255, 255, 255, .2);
+  border-radius: 5px;
+  margin: 10px 0 2px 20%;;
+}
+
+
+.new-comment {
+  display: flex;
+  direction: row;
+  align-items: center;
+}
+
+.comment-body {
+  width: 70%;
+}
+
+.comment-submit {
+  width: 25%;
+}
+
+#comment-label {
+  font-size: 1.5em;
+  margin-right: 5px;
+}
+
+.create-comment {
+  width: 60%;
+}
+
+/**Related to the structure of posts**/
+.post-container {
+  background-color: rgba(191, 191, 191, 1);
+  padding: 5px 5px;
+  margin: 2px 2px;
+  border-radius: 5px;
+  display: grid;
+  grid-template-areas: "title title"
+                       "author date"
+                       "body body"
+                       "post-actions post-actions"
+                       "comment comment";
+}
+
+.post-title {
+  grid-area: title;
+  margin: 0 0;
+  padding: 0 0;
+  font-weight: bold;
+}
+.post-author {
+  grid-area: author;
+  margin: 0 0;
+  padding: 0 0;
+}
+.post-date {
+  grid-area: date;
+  font-size: .75em;
+  text-align: right;
+  margin: 0 5px 0 0;
+  padding: 0 0;
+}
+.post-body {
+  grid-area: body;
+}
+
+.post-actions {
+  grid-area: post-actions;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.post-actions button {
+  margin: 0 5px 5px 5px;
+}
+
+.create-post-body {
+  height: 100px;
+  max-height: 30vh;
+}
+
+.create-comment-body {
+  width: 80%;
+  max-width: 80%;
+  margin-left: 5px;
+}

@@ -1,6 +1,12 @@
 extends layout.pug
 include mixins/_post
 
+block append head
+  link(rel="stylesheet" href="styles/messageBoard.css" type="text/css")
+  link(rel="stylesheet" href="styles/post.css" type="text/css")  
+block append scripts
+  script(src="scripts/jquery.js")
+
 block content
   h1.page-title Welcome #{username}
   div#message-board

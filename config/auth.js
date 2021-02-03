@@ -17,6 +17,8 @@ module.exports = function(app, db) {
     })
   });
 
+  //need to add better handling of errors here so user knows what went wrong
+  //passwords are hashed so they're not stored/sent to db
   passport.use(new LocalStrategy(
     function(username, password, done) {
       User.findOne({name: username}, function(err, user) {
@@ -30,7 +32,6 @@ module.exports = function(app, db) {
         if(!bcrypt.compareSync(password, user.password)){
           console.log("password mismatch");
           return done(null, false);}
-        //need to swap status of user
         user.online = true;
         user.save();
         done(null, user);

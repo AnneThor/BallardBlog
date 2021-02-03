@@ -7,7 +7,7 @@ function buildMap() {
     zoom: 14,
     center: Ballard,
   });
-  // The marker, positioned at Uluru
+  // The marker, positioned at Ballard
   const marker = new google.maps.Marker({
     position: Ballard,
     map: map,

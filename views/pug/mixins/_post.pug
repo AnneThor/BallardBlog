@@ -2,7 +2,7 @@ include _comment
 
 mixin post(post, username)
   div.post-container
-    p.post-title #{post.title}
+    a.post-title(href="/post-detail/"+post._id) #{post.title}
     p.post-date Posted on: #{post.date.getMonth()+1}/#{post.date.getDate()}/#{post.date.getFullYear()} at #{post.date.getHours()}:#{post.date.getMinutes()}
     p.post-author Posted by: #{post.user}
     p.post-body #{post.body}
@@ -12,11 +12,3 @@ mixin post(post, username)
           button(type="submit" value="Edit").edit-post Edit Post
         form(method="post" action="/delete-post/"+post._id)
           button(type="submit" value="Delete" id=post_id).delete-post Delete Post
-    for comment in post.comments
-      +comment(comment)
-    form(action="/new-comment"+post_id, method="post")#new-comment
-      div.form-comment-body
-        label Reply to #{post.user}:
-        textarea(name="body" placeholder="What's on your mind?").create-comment-body
-      div.reply-button
-        input(type="submit", value="Send Reply")

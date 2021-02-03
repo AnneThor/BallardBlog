@@ -1,0 +1,25 @@
+extends layout.pug
+include mixins/_post
+include mixins/_comment
+
+block append head
+  script(src="scripts/jquery.js")
+  link(rel="stylesheet" href="../styles/style.css" type="text/css")
+  link(rel="stylesheet" href="../styles/post.css" type="text/css")
+
+  p.page-title Leave a Comment
+
+  +post(post, username)
+
+  if post.comments.length > 0
+  div#comments
+      each comment in post.comments
+        +comment(comment, username)
+
+  div#add-comment
+   form(action="/new-comment/"+post._id method="post").new-comment
+     div.comment-body
+       label#comment-label Reply to #{username}:
+       textarea(name="comment" placeholder="What's on your mind?").create-comment
+     div.comment-submit
+       input(type="submit" value="Leave a Comment")

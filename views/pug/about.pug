@@ -1,17 +1,23 @@
-include mixins/_navbar
-include mixins/_footer
+extends layout.pug
+include mixins/_outerLink
 
-doctype html
-html(lang="en")
-  head
-     title Ballard Blog
-     meta(name="description", content="Home Page")
-     meta(charset="utf-8")
-     link(rel="stylesheet" href="styles/style.css" type="text/css")
+block append head
+  link(rel="stylesheet" href="styles/about.css" type="text/css")
 
-  body
-    +navbar(username)
+block content
 
-    h1.page-title About Page
+  h1.page-title About Page
 
-    +footer()
+  div#about-layout
+    p.about-text This is a simple message board created using Javascript with Node, Express, authentication with Passport and BCrypt, a nosql database made with MongoDB and Mongoose and html templating with Pug. Logged in users can view all posts, can add posts, and can edit or delete their previous posts. Logged in users are able to add comments to existing posts created by other users.
+    ul.about-links
+      li
+        +outerLink("https://annethor.github.io/", "Personal Porfolio")
+      li
+        +outerLink("https://www.linkedin.com/in/annethor/", "LinkedIn Profile")
+      li
+        +outerLink("https://github.com/annethor", "Github")
+      li
+        +outerLink("https://twitter.com/thor_anne", "Twitter")
+
+    img(src="/images/anne.jpg").about-photo

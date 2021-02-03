@@ -88,100 +88,12 @@ html {
   max-height: 50vh;
 }
 
-#message-board {
-  font-size: 1.75em;
-  max-width: 70vw;
-  width: 70vw;
-  height: 500px;
-  max-height: 50vh;
-  margin-left: auto;
-  margin-right: auto;
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column-reverse;
-}
-
-.post-container {
-  background-color: rgba(191, 191, 191, 1);
-  padding: 5px 5px;
-  margin: 2px 2px;
-  border-radius: 5px;
-  display: grid;
-  grid-template-areas: "title title"
-                       "author date"
-                       "body body"
-                       "post-actions post-actions"
-                       "comment comment";
-}
-
-.post-title {
-  grid-area: title;
-  margin: 0 0;
-  padding: 0 0;
-  font-weight: bold;
-}
-.post-author {
-  grid-area: author;
-  margin: 0 0;
-  padding: 0 0;
-}
-.post-date {
-  grid-area: date;
-  font-size: .75em;
-  text-align: right;
-  margin: 0 5px 0 0;
-  padding: 0 0;
-}
-.post-body {
-  grid-area: body;
-}
-
-.post-actions {
-  grid-area: post-actions;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.post-actions button {
-  margin: 0 5px 5px 5px;
-}
-
-.create-post-body, .create-post-title {
-  width: 60%;
-  max-width: 60vw;
-  margin-left: 5px;
-}
-
-.create-post-body {
-  height: 100px;
-  max-height: 30vh;
-}
-
-.form-post-title, .form-post-post {
-  margin: 2px 0;
-}
-
-.create-comment-body {
-  width: 80%;
-  max-width: 80%;
-  margin-left: 5px;
-}
-
 .reply-button {
   text-align: right;
 }
 
 #new-comment {
   grid-area: comment;
-
-}
-
-#post-controls {
-  text-align: center;
-  margin: 10px auto 10% auto;
-  font-size: 1.75em;
-
 }
 
 #footer {
@@ -193,4 +105,8 @@ html {
   text-align: right;
   margin-right: 20px;
   font-size: 1.5em;
+}
+
+.add-margin {
+  margin-top: 10vh;
 }

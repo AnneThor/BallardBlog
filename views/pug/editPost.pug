@@ -1,14 +1,18 @@
 extends layout.pug
 
+block append head
+  link(rel="stylesheet" href="../styles/style.css" type="text/css")
+  link(rel="stylesheet" href="../styles/editPost.css")
+
 block content
-  div#post-controls
+  p.page-title Edit Your Post
+  div#edit-post-controls
    form(action="/edit-post/"+post._id, method="post")#edit-post
-     p Edit Post
      div
-       label Title:
-       input(type="text" name="title" value=post.title).create-post-title
+       label.edit-form-label Title:
+       input(type="text" name="title" value=post.title).edit-post-title
      div
-       label Post:
-       input(type="textarea" name="body" value=post.body col="5").create-post-body
+       label.edit-form-label Post:
+       textarea(name="body" value=post.body).edit-post-body #{post.body}
      div
        input(type="submit", value="Update Post")

@@ -1,0 +1,30 @@
+#message-board {
+  font-size: 1.75em;
+  max-width: 70vw;
+  width: 70vw;
+  height: 500px;
+  max-height: 50vh;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#post-controls {
+  text-align: center;
+  margin: 10px auto 10% auto;
+  font-size: 1.75em;
+}
+
+#new-post {}
+
+.form-post-title, .form-post-post {
+  margin: 2px 0;
+}
+
+.create-post-body, .create-post-title {
+  width: 60%;
+  max-width: 60vw;
+  margin-left: 5px;
+}

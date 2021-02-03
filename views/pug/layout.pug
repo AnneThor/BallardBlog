@@ -3,12 +3,13 @@ include mixins/_footer
 
 doctype html
 html(lang="en")
-  head
+  block head
      title Ballard Blog
      meta(name="description", content="Home Page")
      meta(charset="utf-8")
      link(rel="stylesheet" href="styles/style.css" type="text/css")
      block scripts
+     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
 
 body
   +navbar(username)

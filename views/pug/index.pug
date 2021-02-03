@@ -5,7 +5,8 @@ include mixins/_login
 
 block scripts
   script(src="scripts/map.js")
-  script(defer src="https://maps.googleapis.com/maps/api/js?key="+process.env.GM_KEY)
+  script(defer src="https://maps.googleapis.com/maps/api/js?key="+process.env.GM_KEY+"&callback=buildMap")
+
 
 block content
   p.page-title Welcome to the Ballard Message Board
