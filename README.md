@@ -5,7 +5,7 @@ Users can create an account or login to view the message board.
 
 Registered users can: create, update, and delete their own posts; they are able to view and comment on the posts of others 
 
-[Live version](https://ballardblog.herokuapp.com/)
+[Live version](https://ballardblog.herokuapp.com/){:target="_blank"}
 
 ------------------------------------------------------------------------
 
