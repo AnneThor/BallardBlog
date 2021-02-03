@@ -1,6 +1,5 @@
 {
   "name": "ballardblog",
-  "homepage": "https://annethor.github.io/BallardBlog",
   "version": "1.0.0",
   "description": "Javascript Message Board",
   "main": "app.js",

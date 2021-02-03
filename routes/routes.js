@@ -6,6 +6,7 @@ var Post = require("../models/Post.js");
 
 module.exports = function(app, db) {
   app.get("/", (req, res) => {
+    console.log("entered app get /");
     res.render(process.cwd()+"/views/pug/index", {username: req.user ? req.user.name : null})
   });
 
